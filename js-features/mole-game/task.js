@@ -6,17 +6,18 @@ for (let i = 0; i < playground.length; i++) {
   playground[i].onclick = function() {
     if (playground[i].className === 'hole') {
       lostCounter.textContent++;
-      if (lostCounter.textContent === '5') {
-        alert('Вы проиграли');
-        restart();
-      }
     } else {
       deadCounter.textContent++;
-      if (deadCounter.textContent === '10') {
-        alert('Вы выиграли!')
-        restart();
-      }
     }
+
+    if (lostCounter.textContent === '5') {
+      alert('Вы проиграли');
+      restart();
+    } else if (deadCounter.textContent === '10') {
+      alert('Вы выиграли!')
+      restart();
+    }
+
     return;
   }
 }

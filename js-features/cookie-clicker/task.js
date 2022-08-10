@@ -29,18 +29,11 @@ cookieImg.addEventListener('click', doClick);
 function doClick () {
   clickerCounter++;
   getForce();
-  changeWidth();
+  cookieImg.width = clickerCounter % 2 === 0 ? '200' : '250';
   lastClickTime = Date.now();
   return clickerElem.textContent = clickerCounter;
 };
 
-function changeWidth(){
-  if (clickerCounter % 2 === 0) {
-    cookieImg.width = '200';
-  } else {
-    cookieImg.width = '250';
-  }
-};
 
 function getForce() {
   if (isFirstClick) {
