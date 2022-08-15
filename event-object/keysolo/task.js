@@ -17,13 +17,19 @@ class Game {
   }
 
   registerEvents() {
-    /*
-      TODO:
-      Написать обработчик события, который откликается
-      на каждый введённый символ.
-      В случае правильного ввода слова вызываем this.success()
-      При неправильном вводе символа - this.fail();
-     */
+    let context = this;
+    document.addEventListener('keydown', compareSymbols);
+
+    function compareSymbols(e){
+      let inputSymbol = e.key.toLowerCase();
+      let neededSymbol = context.currentSymbol.textContent.toLowerCase();
+
+      if (inputSymbol === neededSymbol) {
+        context.success();
+      } else {
+        context.fail();
+      }
+    }
   }
 
   success() {
@@ -87,4 +93,3 @@ class Game {
 }
 
 new Game(document.getElementById('game'))
-
