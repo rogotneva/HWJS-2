@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 closeBtn.addEventListener('click', () => {
   modal.classList.remove('modal_active');
-  document.cookie = 'modalClosed=true';
-  console.log(document.cookie ? document.cookie : null);
+  let date = new Date();
+  date.setTime(date.getTime() + (3600 * 1000 * 24));
+  document.cookie = 'modalClosed=true; expires=' + date.toUTCString();
 });
